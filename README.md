@@ -39,24 +39,19 @@ Replicationcontroller
     "apiVersion": "v1",
     "kind": "ReplicationController",
     "metadata": {
-        "name": "app-name-9999999999"
+        "name": "app-1-9999999999"
     },
     "spec": {
         "replicas": 5,
         "selector": {
-            "application": "app-name",
-            ...
+            "application": "app-1"
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "application": "app-name",
-                    "tier": "backend",
-                    ...
-                },
-            },
-            "spec": {
-                ...
+                    "application": "app-1",
+                    "tier": "backend"
+                }
             }
         }
     }
@@ -69,15 +64,15 @@ Service
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
-        "name": "app-name",
+        "name": "app-1",
         "labels": {
-            "application": "app-name",
+            "application": "app-1",
             "tier": "backend"
         },
     },
     "spec": {
         "selector": {
-            "application": "app-name",
+            "application": "app-1",
         }
     }
 }
