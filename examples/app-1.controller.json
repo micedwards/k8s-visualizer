@@ -1,0 +1,21 @@
+{
+    "apiVersion": "v1",
+    "kind": "ReplicationController",
+    "metadata": {
+        "name": "app-1-9999999999"
+    },
+    "spec": {
+        "replicas": 5,
+        "selector": {
+            "application": "app-1"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "application": "app-1",
+                    "tier": "backend"
+                }
+            }
+        }
+    }
+}
