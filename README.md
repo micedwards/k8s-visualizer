@@ -13,11 +13,15 @@ This is a simple visualizer for use with the Kubernetes API.
 
 In your browser you can see the visualization at localhost:8080/static
 
+### Aim of this modification over the originals:
+
+It may not be practiable to you to freely change labels on rcs or services. This script enables you to configure what labels should be used for visualization. Its better human readable.
+
 ### Configuration:
 
 In order to use this script, you will have to configure what resources shall be displayed. 
 
-The visualizer uses labels to organize the visualization.  In particular it expects that
+The visualizer uses labels to organize the visualization. In particular it expects that
 
    * pods, replicationcontrollers and services you want to visualize can be classified by a ```label``` (eg. 'tier': 'backend')
    * associated pods, replicationcontrollers and services have shared ```label``` with the same value (eg. 'application': 'app-name')
@@ -27,7 +31,7 @@ The visualizer uses labels to organize the visualization.  In particular it expe
 Lets assume you have 3 apps in your system, with the labels ```'application': 'app-{1,2,3}'``` and all three live in the 'backend' tier.
 
 
-Lets assume your replicationcontroller and service definitions look as follows:
+Lets assume your replicationcontroller and service definitions look as similar to the following:
 
 Replicationcontroller
 ```
