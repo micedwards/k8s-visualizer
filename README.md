@@ -9,7 +9,7 @@ This is a simple visualizer for use with the Kubernetes API.
    * First install a Kubernetes or Container Engine Cluster
    * ```git clone https://github.com/saturnism/gcp-live-k8s-visualizer.git```
    * ```cd path/to/gcp-live-k8s-visualizer```
-   * ```kubectl proxy -p 8080 -w .
+   * ```kubectl proxy -p 8080 -w .```
 
 In your browser you can see the visualization at localhost:8080/static
 
@@ -28,6 +28,7 @@ Lets assume you have 3 apps in your system, with the labels ```'application': 'a
 
 
 Lets assume your replicationcontroller and service definitions look as follows:
+
 Replicationcontroller
 ```
 {
