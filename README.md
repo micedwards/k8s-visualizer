@@ -7,13 +7,13 @@ This is a simple visualizer for use with the Kubernetes API.
 
 ### Usage:
    * First install a Kubernetes or Container Engine Cluster
-   * ```git clone https://github.com/saturnism/gcp-live-k8s-visualizer.git```
-   * ```cd path/to/gcp-live-k8s-visualizer```
+   * ```git clone https://github.com/0ortmann/k8s-visualizer.git```
+   * ```cd path/to/k8s-visualizer```
    * ```kubectl proxy -p 8080 -w .```
 
 In your browser you can see the visualization at localhost:8080/static
 
-### Aim of this modification over the originals:
+### Aim of this fork:
 
 It may not be practiable to you to freely change labels on rcs or services. This script enables you to configure what labels should be used for visualization. Its better human readable.
 
@@ -28,10 +28,10 @@ The visualizer uses labels to organize the visualization. In particular it expec
 
 ### Examples:
 
-Lets assume you have 3 apps in your system, with the labels ```'application': 'app-{1,2,3}'``` and all three live in the 'backend' tier.
+Lets assume you have 3 apps in your system, with the labels ```'application': 'app-{1,2,3}'``` and all three live in the ```'backend'``` tier.
 
 
-Lets assume your replicationcontroller and service definitions look as similar to the following:
+Lets assume your replicationcontroller and service definitions look similar to the following:
 
 Replicationcontroller
 ```
@@ -92,4 +92,4 @@ var connectionIdentifier = "application";
 ```
 
 
-This will make the script visualize all those resources that define a label ```tier``` with the value ```backend``` and it will connect all those resources, that share the value of the label ```application``` (which would be app-1, app-2 and app-3).
+This will make the script visualize all those resources that define a label ```tier``` with the value ```backend``` and it will connect all those resources, that share the value of the label ```application``` (which would result in connecting the rc, service and pod(s) of app-1, app-2 and app-3, grouping it into 3 logical groups)
