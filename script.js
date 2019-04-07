@@ -143,7 +143,7 @@ var makeGroupOrder = function() {
 
 var renderNodes = function() {
     var y = 25;
-    var x = 100;
+    var x = 0;
     $.each(nodes.items, function(index, value) {
         //console.log(value);
         var div = $('<div/>');
@@ -155,7 +155,7 @@ var renderNodes = function() {
         });
 
         var eltDiv = $('<div class="window node ' + ready + '" title="' + value.metadata.name + '" id="node-' + value.metadata.name +
-            '" style="left: ' + (x + 250) + '; top: ' + y + '"/>');
+            '" style="left: ' + (x + 30) + '; top: ' + y + '"/>');
         eltDiv.html('<span><b>Node</b><br/><br/>' +
             truncate(value.metadata.name, 6) +
             '</span>');
@@ -164,13 +164,13 @@ var renderNodes = function() {
         var elt = $('.nodesbar');
         elt.append(div);
 
-        x += 120;
+        x += 125;
     });
 }
 
 var renderGroups = function() {
     var elt = $('#sheet');
-    var groupDist = 10;
+    var groupDist = 20;
     var serviceLeft = 0;
     var groupOrder = makeGroupOrder();
     var tokenCounter = {};
@@ -191,7 +191,7 @@ var renderGroups = function() {
                 var key = "pod-" + appName;
                 tokenCounter[key] = key in tokenCounter ? tokenCounter[key] + 1 : 1
                 eltDiv = $('<div class="window pod ' + phase + '" title="' + value.metadata.name + '" id="pod-' + value.metadata.name +
-                    '" style="left: ' + (150 + tokenCounter[key] * 130) + '; top: ' + (groupDist + 160) + '"/>');
+                    '" style="left: ' + (0 + tokenCounter[key] * 130) + '; top: ' + (groupDist + 150) + '"/>');
                 eltDiv.html('<span>' +
                     truncate(value.metadata.name, 8, true) +
                     (value.metadata.labels.version ? "<br/>" + value.metadata.labels.version : "") + "<br/><br/>" +
@@ -199,7 +199,7 @@ var renderGroups = function() {
                     '</span>');
             } else if (value.type == "service") {
                 eltDiv = $('<div class="window wide service ' + phase + '" title="' + value.metadata.name + '" id="service-' + value.metadata.name +
-                    '" style="left: ' + 75 + '; top: ' + groupDist + '"/>');
+                    '" style="left: ' + 30 + '; top: ' + groupDist + '"/>');
                 eltDiv.html('<span>' +
                     value.metadata.name +
                     (value.metadata.labels.version ? "<br/><br/>" + value.metadata.labels.version : "") +
@@ -219,7 +219,7 @@ var renderGroups = function() {
             }
             div.append(eltDiv);
         });
-        groupDist += 400;
+        groupDist += 280;
         serviceLeft += 200;
         elt.append(div);
     });
@@ -347,20 +347,23 @@ var colors = [
     ]
 // render all those labels listed in here:
 var renderLabel = [{
-    key: "tier",
-    value: "backend"
+    key: "faas_function",
+    value: "figlet"
 }, {
-    key: "tier",
-    value: "frontend"
+    key: "faas_function",
+    value: "nodeinfo"
 }, {
-    key: "tier",
-    value: "infrastructure"
+    key: "faas_function",
+    value: "nslookup"
+}, {
+    key: "faas_function",
+    value: "certinfo"
 }];
 
 // identify connected resources by this labels value  (must be set!)
 // eg. your services and replication controllers do all define a "metadata.label" like "application":"resource-name", 
 // then you have to configure this here in order to make enable this script to link those services and pods together graphically.
-var connectionIdentifier = "application";
+var connectionIdentifier = "faas_function";
 
-var refreshInterval = 20000; // the longer the less annoying
+var refreshInterval = 10000; // the longer the less annoying
 
