@@ -1,6 +1,6 @@
 ## Kubernetes/Container Engine Visualizer
 
-MJE NOTE: This is a fork of k8s-visualizer by Felix Ortmann (0ortmann). Please to refer to the original repository for the official upstreams. All credits to the respective authors. I've just been mainly tweaking spacing values to move flowcharts to the left and closer together. Also changed labels in script.js to select OpenFaaS functions by default (although you still need to add a label '''faas_function=\<func-name\>''' to the OpenFaaS function services)
+MJE NOTE: This is a fork of k8s-visualizer by Felix Ortmann (0ortmann). Please to refer to the original repository for the official upstreams. All credits to the respective authors. I've just been mainly tweaking spacing values to move flowcharts to the left and closer together. Also changed labels in script.js to select OpenFaaS functions by default (although you still need to add a label ```faas_function=\<func-name\>``` to the OpenFaaS function services)
 
 
 NOTE: This is a fork of gcp-live-k8s-visualizer by saturnism // brendandburns. Please to refer to the original repository for the official upstreams. All credits to the respective authors.
